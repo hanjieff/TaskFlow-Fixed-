@@ -250,14 +250,14 @@ export default function Workspace({ user, onUserChange, onLogout, dark, toggleTh
         <span className="brand-mark">t<span />
         </span>taskflow<span className="brand-period">.</span>
       </NavLink>
-      <div className="workspace-selector">
+      <button type="button" className="workspace-selector" onClick={() => navigate('/settings')}>
         <span className="workspace-symbol">{initials(user.name)}</span>
         <div>
           <strong>My workspace</strong>
           <span>Personal workspace</span>
         </div>
-        <Icon name="down" size={14} />
-      </div>
+        <Icon name="settings" size={14} />
+      </button>
       <p className="nav-caption">WORKSPACE</p>
       <nav aria-label="Main navigation">{nav.map(item => <NavLink key={item.path} to={item.path} onClick={guardLink} end={item.path === '/'}>
         <Icon name={item.icon} size={19} />{item.label}{item.path === '/tasks' && <span className="nav-count">{active.length}</span>}</NavLink>)}<NavLink to="/inbox" onClick={guardLink}>
