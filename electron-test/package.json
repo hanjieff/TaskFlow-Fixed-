@@ -1,0 +1,28 @@
+{
+  "name": "taskflow-desktop",
+  "productName": "TaskFlow",
+  "version": "0.1.0",
+  "description": "TaskFlow desktop app — a focused window for your TaskFlow workspace",
+  "private": true,
+  "type": "module",
+  "main": "main.mjs",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "com.hanjieff.taskflow",
+    "productName": "TaskFlow",
+    "files": ["main.mjs", "offline.html", "package.json"],
+    "win": { "target": "nsis" },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "TaskFlow-Setup-${version}.exe"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.0.0",
+    "electron-builder": "^26.0.12"
+  }
+}
